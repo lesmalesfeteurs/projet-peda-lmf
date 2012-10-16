@@ -1,0 +1,32 @@
+name = LMF
+description = Le theme cree pour le site lesmalesfeteurs
+core = 7.x
+
+stylesheets[all][] = css/reset.css
+stylesheets[all][] = css/layout.css
+stylesheets[print][] = css/print.css
+
+scripts[] = js/jquery.min.js
+scripts[] = js/main.js
+scripts[] = js/popbox.min.js
+scripts[] = js/galleria-1.2.7.min.js
+
+regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+regions[featured] = Featured
+regions[content] = Content
+regions[sidebar_first] = Sidebar
+
+regions[footer] = Footer
+
+features[] = logo
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
