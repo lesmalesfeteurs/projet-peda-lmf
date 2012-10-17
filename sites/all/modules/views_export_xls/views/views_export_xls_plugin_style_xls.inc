@@ -22,11 +22,11 @@ class views_export_xls_plugin_style_xls extends views_plugin_style {
   }
 
   /**
-	 * Attach this view to another display as a feed.
-	 *
-	 * Provide basic functionality for all export style views like attaching a
-	 * feed image link.
-	 */
+   * Attach this view to another display as a feed.
+   *
+   * Provide basic functionality for all export style views like attaching a
+   * feed image link.
+   */
   function attach_to($display_id, $path, $title) {
 
     $url_options = array('html' => TRUE);
@@ -34,9 +34,15 @@ class views_export_xls_plugin_style_xls extends views_plugin_style {
     if ($input) {
       $url_options['query'] = $input;
     }
-    $image = theme('image', $this->feed_image);
+    $variables = array(
+      'path' => $this->feed_image,
+      'alt' => 'Icon for xls export',
+      'title' => 'Export to xls',
+      );
+    $image = theme('image', $variables);
     $this->view->feed_icon .= l($image, $this->view->get_url(NULL, $path), $url_options);
   }
+
   /**
    * Set options fields and default values.
    *
@@ -50,11 +56,6 @@ class views_export_xls_plugin_style_xls extends views_plugin_style {
       'default' => 'view-%view.xls',
       'translatable' => FALSE,
     );
-
-    /*$options['encoding'] = array(
-     'default' => 'utf-8',
-     'translatable' => FALSE,
-     );*/
 
     return $options;
   }
@@ -77,13 +78,5 @@ class views_export_xls_plugin_style_xls extends views_plugin_style {
       '#default_value' => $this->options['filename'],
       '#description' => t('The filename that will be suggested to the browser for downloading purposes. %view will be replaced with the view name.'),
     );
-
-    /*$options = array('utf-8' => t('UTF-8'), 'cp1252' => t('Western (Windows 1252)'), 'cp1251' => t('Cirillic (Windows 1251)'), 'iso-8859-1' => t('Western (ISO-8859-1)'));
-     $form['encoding'] = array(
-     '#type' => 'radios',
-     '#title' => t('File encoding'),
-     '#default_value' => $this->options['encoding'],
-     '#options' => $options,
-     );*/
   }
 }

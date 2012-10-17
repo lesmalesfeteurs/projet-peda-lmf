@@ -10,9 +10,9 @@ files[] = views/views_export_xls.views.inc
 files[] = views/views_export_xls_plugin_style_xls.inc
 
  
-; Information added by drupal.org packaging script on 2011-11-24
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2012-10-06
+version = "7.x-1.0+1-dev"
 core = "7.x"
 project = "views_export_xls"
-datestamp = "1322095657"
+datestamp = "1349485354"
 
