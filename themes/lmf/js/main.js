@@ -29,7 +29,7 @@ $(function() {
     $('#connexion li.popbox a.open').click(function(e){
         e.preventDefault();
         if(!popbox_open){
-            $.get('/user/login', function(data) {
+            $.get('user/login', function(data) {
                     var form=$(data).find("#content-system-main .content");
                     var popbox = "<div class='collapse'><div class='box'><div class='arrow'></div><div class='arrow-border'></div><div id='connexTitle'>Se connecter</div><div class='close'>X</div>"
                     //console.log(form);
