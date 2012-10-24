@@ -97,6 +97,5 @@ global $base_url;
   ?>
 </div>
 <script>
-	Galleria.loadTheme('http://91.121.75.194/lmf/sites/all/libraries/galleria/themes/classic/galleria.classic.min.js');
 	Galleria.run('#galleria');
 </script>
