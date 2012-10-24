@@ -52,6 +52,40 @@ $(function() {
         
     });
     
+    /*
+     * Gestion du menu
+     **/
+    $('#main-menu li:nth-child(1)').addClass('menu_home');
+    $('#main-menu li:nth-child(2)').addClass('menu_activites');
+    $('#main-menu li:nth-child(3)').addClass('menu_association');
+    $('#main-menu li:nth-child(4)').addClass('menu_partenaires');
+    $('#main-menu li:nth-child(5)').addClass('menu_photos');
+    $('#main-menu li:nth-child(6)').addClass('menu_contact');
+    $('#main-menu li:nth-child(7)').addClass('menu_membre');
+    $('#main-menu li').addClass('menu_principal');
+    $('#main-menu li:nth-child(7)').removeClass('menu_principal');
+ 
+ 
+ 
+    /**
+     * Gestion du menu Membre
+     **/
+    
+    /* augmente la taille des onglets si le menu membre n'est pas affiche*/
+    if ($('#main-menu .menu li').length==6){
+        $('#main-menu .menu li').css({'width': '8.7em'});
+    }
+    
+    /* gere l'affichage du sous-menu*/
+    $('#main-menu .expanded *').hover(
+        function(){
+            $('#main-menu ul li ul').addClass('visible');
+        },function(){
+            $('#main-menu ul li ul').removeClass('visible');
+        });
+ 
+ 
+ 
      /**
      * Gestion de la gmap
      **/
@@ -106,22 +140,7 @@ $(function() {
         });
     }*/
     
-    /**
-     * Gestion du menu Membre
-     **/
     
-    /*augmente la taille des onglets si le menu membre n'est pas affich�*/
-    if ($('#main-menu .menu li').length==6){
-        $('#main-menu .menu li').css({'width': '8.7em'});
-    }
-    
-    /* gere l'affichage du sous-menu*/
-    $('#main-menu .expanded *').hover(
-        function(){
-            $('#main-menu ul li ul').addClass('visible');
-        },function(){
-            $('#main-menu ul li ul').removeClass('visible');
-        });
     
     
     /*
@@ -192,8 +211,9 @@ $(function() {
      }
      
      /* Quick fixes */
-     $(".form-item.form-type-checkbox.form-item-contact label").text("Autoriser les adhérents à me contacter par l'intermédiaire de ce site");
-     $("input#edit-field-event-datetime-und-add-more.field-add-more-submit.form-submit.ajax-processed").attr("value", "Je peux réaliser l'activité à une autre date");
+    $(".form-item.form-type-checkbox.form-item-contact label").text("Autoriser les adhérents à me contacter par l'intermédiaire de ce site");
+    $("input#edit-field-event-datetime-und-add-more.field-add-more-submit.form-submit.ajax-processed").attr("value", "Je peux réaliser l'activité à une autre date");
     $('#edit-field-recevoir-le-planning-und').children('div:first-child').remove();
+    
 
 });
