@@ -147,7 +147,7 @@ $(function() {
      *Suppression d'elements inutile
      **/
 
-     if($('#profil')){
+    /*if($('#profil')){
          //console.log('ok');
          $('h1').css({'position':'absolute','z-index':'-99'});
          $('#profil h2').css({'display':'none'});
@@ -156,7 +156,7 @@ $(function() {
      if($('.field-name-field-participation')){
          $('.vertical-tabs').css({'display':'none'});
      }
-     
+     */
      /*
     if($('#activite') && $('.geolocation-googlemaps-static')){
          $('.tabs').css({'display':'none'});
