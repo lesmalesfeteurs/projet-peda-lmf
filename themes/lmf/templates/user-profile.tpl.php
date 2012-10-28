@@ -1,4 +1,4 @@
-<?php
+<?Php
 
 /**
  * @file
@@ -52,16 +52,23 @@
 		<?php print render($user_profile['field_pays']); ?>
 		<?php print render($user_profile['field_date_de_naissance']); ?>
 		<?php print render($user_profile['field_t_l_phone']);?>
-		</div>
+	</div>
 
-		<?php if($user->roles[1] == "Trésorier" OR $user->uid == arg(1)):
-		?>
-			<div id="profil-adhesion">
-				<h3>Informations de l'adhésion</h3>
-				<?php print render($user_profile['field_date_adhesion']); ?>
-				<?php print render($user_profile['field_montant_adhesion']); ?>
-				<?php print render($user_profile['field_informations_sur_l_adh_sio']); ?>
-				<?php print render($user_profile['summary']); ?>
-			</div>
-		<?php endif; ?>
-</div>
+	<?php if(($user->roles[1] == "Trésorier" || $user->uid == arg(1)) && $user_profile['field_date_adhesion'] !== NULL) {?>
+	<div id="profil-adhesion">
+             <h3>Informations de l'adhésion</h3>
+	     <?php print render($user_profile['field_date_adhesion']); ?>
+	     <?php print render($user_profile['field_montant_adhesion']); ?>
+	     <?php print render($user_profile['field_informations_sur_l_adh_sio']); ?>
+	     <?php print render($user_profile['summary']); ?>
+	</div>
+	<?php } ?>
+        
+        <div id="profil-activites-referent">
+             <h3>Activites dont vous etes le referent</h3>
+             <?php
+                $block = module_invoke('views', 'block_view', 'd4d67b4ff15dc390dc008be5ae8ebd27');
+                print render($block); 
+             ?>
+        </div>   
+ </div>

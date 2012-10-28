@@ -174,7 +174,7 @@ $(function() {
      * Gestion de la page d'inscription
      **/
      
-    if($('#user-register-form').length=='1'){
+    if($('#user-register-form').length == '1' && window.location.pathname.search('register') !== -1 ){
          
         var oldContent = $('.content').html();
         var textIntro = "<div id='inscription'><div id=\"step1\">"+
