@@ -87,7 +87,7 @@
 			print render($content['field_event_image']);
 			print render($content['field_event_datetime']);
 			// Ajouter lieu
-			print render($content['field_nom_du_r_f_rent']);
+			//print render($content['field_nom_du_r_f_rent']);
 			print "<span>Téléphone :".$node->field_telephone["und"][0]['value']."</span>";
 			print render($content['field_price']);
 			print render($content['field_event_capacity']);

@@ -71,4 +71,13 @@
                 print render($block); 
              ?>
         </div>   
+
+        <div id="profil-activites-not-published">
+             <h3>Activité que vous avez proposée</h3>
+             <?php
+                $block = module_invoke('views', 'block_view', '36e6498d7abfac3bb873f88f4f7925d2');
+                print render($block); 
+             ?>
+        </div>   
+
  </div>

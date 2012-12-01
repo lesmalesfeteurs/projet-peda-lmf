@@ -61,11 +61,14 @@ label{
 }
 
 input, select{
-    width: 15em;
     border-radius: 5px;
     border: solid 1px #bbbbbb;
     height: 2em;
     font-family: Rockwell;
+}
+
+input[type="text"], #user-login input{
+    width: 15em;
 }
 
 .view-footer a{
@@ -898,7 +901,12 @@ table .views-field-name{
     height: 20px;
 }
 
-#event-node-form .form-item-title input, #event-node-form #edit-field-type-d-activit-und{
+#event-node-form .form-item-title input, #event-node-form #edit-field-type-d-activit-und,
+.page-node-add-event .form-item-field-site-web-und-0-url input,
+.page-node-add-event #field-address-ref-add-more-wrapper input, 
+.page-node-add-event #edit-field-price-und-0-value,
+.page-node-add-event #edit-field-public-event-und,
+.page-node-add-event #edit-field-telephone-und-0-value{
     position: absolute;
     left: 43%;
 }
@@ -908,19 +916,121 @@ table .views-field-name{
     display: none;
 }
 
+.page-node-add-event .form-item-field-site-web-und-0 label{
+    float: left;
+}
+
 /** 
 ########################
      INSCRIPTION      
 ########################
 */
 
-#user-register-form .description{
+.page-user-register .fieldset-legend{
     display: none;
+}
+
+.page-user-register #edit-field-date-de-naissance-und-0-value{
+    padding: 0;
+}
+
+.page-user-register .user-info-from-cookie{
+    float: right;
+    width: 42%;
+}
+
+#inscription{
+    float: left;
+}
+
+#inscription #step1 {
+    -moz-box-shadow: 0 1px 5px black;
+    -webkit-box-shadow: 0 1px 5px black;
+    box-shadow: 0 1px 5px black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-image: linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
+    background-image: -o-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
+    background-image: -moz-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
+    background-image: -webkit-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
+    background-image: -ms-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(142,208,84)), color-stop(0.63, rgb(84,172,49)));
+    width: 510px;
+    height: 180px;
+    margin-bottom: 30px;
+    color: white;
+    font-family: Rockwell;
+}
+
+#inscription #step2 {
+    -moz-box-shadow: 0 1px 2px black;
+    -webkit-box-shadow: 0 1px 2px black;
+    box-shadow: 0 1px 2px black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-image: linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
+    background-image: -o-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
+    background-image: -moz-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
+    background-image: -webkit-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
+    background-image: -ms-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
+
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(223,141,218)), color-stop(0.63, rgb(204,84,190)));
+    width: 510px;
+    height: 105px;
+    margin-bottom: 30px;
+    color: white;
+    font-family: Rockwell;
+}
+
+#inscription #step3 {
+    -moz-box-shadow: 0 1px 2px black;
+    -webkit-box-shadow: 0 1px 2px black;
+    box-shadow: 0 1px 2px black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-image: linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
+    background-image: -o-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
+    background-image: -moz-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
+    background-image: -webkit-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
+    background-image: -ms-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
+
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(86,180,214)), color-stop(0.63, rgb(46,122,179)));
+    width: 510px;
+    height: 120px;
+    color: white;
+    font-family: Rockwell;
+    margin-bottom: 30px;
+}
+
+#inscription .stepNumber {
+    font-size: 48px;
+    float: left;
+    height: 100%;
+    width: 48px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#inscription .stepTitle {
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+#inscription .stepDesc {
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+#inscription p {
+    margin: 5px;
 }
 
 /** 
 ##################
-     PROFILE      
+     PROFIL     
 ##################
 */
 
@@ -986,6 +1096,14 @@ form .description {
     margin: 0 1.5%;
 }
 
+.page-user- #profil h2{
+    display: none;
+}
+
+.page-user- .profile h3{
+    border-bottom: none;
+}
+
 /** 
 ###################################
             MESSAGERIE     
@@ -1040,6 +1158,10 @@ ul.action-links li a{
     background-image: -webkit-linear-gradient(top,#FF9821 30%, #F47103);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%,#FF9821) color-stop(100%, #F47103));
     background-image: -o-gradient(linear, left top, #FF9821 30%, #F47103);
+}
+
+.page-messages-view .user-picture img{
+    max-width: 8em;
 }
 
 /** 
@@ -1474,103 +1596,6 @@ ul.primary li a:hover {
     display: block;
     margin-left: 14px;
 }
-
-/** 
-#######################
-#     INSCRIPTION       
-#######################
-**/
-
-#inscription{
-    float: left;
-    margin-right: 7em;
-}
-
-#inscription #step1 {
-    -moz-box-shadow: 0 1px 5px black;
-    -webkit-box-shadow: 0 1px 5px black;
-    box-shadow: 0 1px 5px black;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background-image: linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
-    background-image: -o-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
-    background-image: -moz-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
-    background-image: -webkit-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
-    background-image: -ms-linear-gradient(top, rgb(142,208,84) 0%, rgb(84,172,49) 63%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(142,208,84)), color-stop(0.63, rgb(84,172,49)));
-    width: 510px;
-    height: 180px;
-    margin-bottom: 30px;
-    color: white;
-    font-family: Rockwell;
-}
-
-#inscription #step2 {
-    -moz-box-shadow: 0 1px 2px black;
-    -webkit-box-shadow: 0 1px 2px black;
-    box-shadow: 0 1px 2px black;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background-image: linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
-    background-image: -o-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
-    background-image: -moz-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
-    background-image: -webkit-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
-    background-image: -ms-linear-gradient(top, rgb(223,141,218) 0%, rgb(204,84,190) 63%);
-
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(223,141,218)), color-stop(0.63, rgb(204,84,190)));
-    width: 510px;
-    height: 105px;
-    margin-bottom: 30px;
-    color: white;
-    font-family: Rockwell;
-}
-
-#inscription #step3 {
-    -moz-box-shadow: 0 1px 2px black;
-    -webkit-box-shadow: 0 1px 2px black;
-    box-shadow: 0 1px 2px black;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background-image: linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
-    background-image: -o-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
-    background-image: -moz-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
-    background-image: -webkit-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
-    background-image: -ms-linear-gradient(top, rgb(86,180,214) 0%, rgb(46,122,179) 63%);
-
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(86,180,214)), color-stop(0.63, rgb(46,122,179)));
-    width: 510px;
-    height: 120px;
-    color: white;
-    font-family: Rockwell;
-    margin-bottom: 30px;
-}
-
-#inscription .stepNumber {
-    font-size: 48px;
-    float: left;
-    height: 100%;
-    width: 48px;
-    text-align: center;
-    padding-top: 30px;
-}
-
-#inscription .stepTitle {
-    padding-top: 10px;
-    font-size: 20px;
-}
-
-#inscription .stepDesc {
-    font-size: 14px;
-    margin-right: 15px;
-}
-
-#inscription p {
-    margin: 5px;
-}
-
 
 /** 
 ##################
