@@ -112,6 +112,7 @@ textarea{
     background-image: -webkit-linear-gradient(top, #ff9821 30%, #f47103);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #ff9821) color-stop(100%, #f47103));
     background-image: -o-gradient(linear, left top, #ff9821 30%, #f47103);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff9821', endColorstr='#f47103')";
 }
 
 .form-submit:hover{
@@ -125,6 +126,7 @@ textarea{
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f47103', endColorstr='#ff9821')";
 }
 
 #page {
@@ -355,6 +357,7 @@ address .address-name { font-weight: bold;}
     background-image: -webkit-linear-gradient(top, #017bbb 30%, #0189d1);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #017bbb) color-stop(100%, #0189d1)); /* chrome < v10 */
     background-image: -o-gradient(linear, left top, #017bbb 30%, #0189d1);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#017bbb', endColorstr='#0189d1')"; /* IE8 */
 }
 
 #header {
@@ -429,13 +432,22 @@ address .address-name { font-weight: bold;}
     background-size: 8em 2px;
     background: url(../images/menu_membre.jpg) no-repeat;
 }
-#main-menu li.menu_membre:hover{ background-repeat: repeat-y;}
+/*#main-menu li.menu_membre:hover{ background-repeat: repeat-y;}*/
 #main-menu li.menu_membre:hover a{ color: white;}
 #main-menu li.menu_membre:hover ul a{ color: #2F2F2F;}
 
 #main-menu li:hover a{color: white;}
 
-#main-menu .menu_principal:hover, #main-menu li:hover a {
+#main-menu .menu_principal:hover, #main-menu li:hover a{
+    background-size: 8em 2.2em;
+    -moz-transition: all 1s ease-in;
+    -webkit-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#main-menu li.menu_membre:hover {
     background-size: 8em 2.2em;
     -moz-transition: all 1s ease-in;
     -webkit-transition: all 1s ease;
@@ -590,11 +602,14 @@ table .views-field-name{
 #content-views-activites-front_next span.date-display-single{
     color: white;
     font-size: 1.8em;
-    left: 8px;
-    position: absolute;
+    display: block;
+    float: left;
+    padding-top: 8px;
     text-align: center;
-    top: 19px;
-    width: 49px;
+    width: 62px;
+    height: 72px;
+    background: url('../images/thb_activitesDuMois.png');
+    margin-right: .5em;
 }
 
 #content-views-activites-front_next h3 a{
@@ -603,7 +618,7 @@ table .views-field-name{
     font-weight: bold;
 }
 
-#content-views-activites-front_next .content h3+p{
+#content-views-activites-front_next h3{
 
 }
 
@@ -611,7 +626,7 @@ table .views-field-name{
     border-radius: 8px 8px 8px 8px;
     box-shadow: 2px 2px 2px #aaa;
     background: #ffffff;
-    height: 6em;
+    height: 5.7em;
     margin-bottom: 1em;
     position: relative;
 }
@@ -664,6 +679,7 @@ table .views-field-name{
     color: #43addc;
     text-decoration: underline;
     font-size: 13px;
+    display: block;
 }
 
 #sidebar_first-views-activites-front_activites .cut img {
@@ -671,53 +687,83 @@ table .views-field-name{
     margin-right: 5px;
 }
 
+#sidebar_first-views-activites-front_activites .pager{
+    margin-top: 1em;
+    padding-bottom: .5em;
+    width: 52%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#sidebar_first-views-activites-front_activites .pager li a{
+    display: block;
+    /*background: red;*/
+    width: 3em;
+    height: 3em;
+    text-indent: -9000px;
+}
+
+#sidebar_first-views-activites-front_activites .pager .pager-previous a{
+    background: url('../images/slider_previous.png') no-repeat;
+    float: left;
+}
+
+#sidebar_first-views-activites-front_activites .pager .pager-next a{
+    background: url('../images/slider_next.png') no-repeat;
+    float: right;
+}
+
+#sidebar_first-views-activites-front_activites .pager .pager-current{
+    margin-left: -1.5em;
+}
+
 /** 
 ##############################
-     DESCRIPTION ACTIVITE        
+     NODE ACTIVITE        
 ##############################
 **/
 
-#activite{
+.node-event {
     margin-top: 25px;
 }
 
-#activite h2{
-    color: #000;
+.node-event .event-label {
+    font-weight: bold;
+}
+
+.node-event h2 {
     font-family: tahoma;
     font-weight: bold;
-    text-decoration: none;
     font-size: 1.3em;
 }
 
-#activite .field-name-field-event-image {
+.node-event .event-image {
     float: left;
     margin: 5px 10px;
 }
 
-
-#activite .field-name-field-event-datetime {
-    display: inline;
+.node-event .statistics_counter, .node-event .links .comment-add a, .node-event .field-type-user-reference>div{
+    /*display: none;*/
 }
 
-
-#activite .statistics_counter, #activite .links .comment-add a, #activite .field-type-user-reference>div{
-    display: none;
-}
-
-#activite .field-name-field-nom-du-r-f-rent{
+.node-event .event-refer {
     margin-left: 2em;
     float: right;
     margin-right: 20em;
 }
 
-#activite .geolocation-googlemaps-static{
-    display: block;
-    float: right;
-    margin-right: -1em;
-    margin-top: -16em;
+.node-type-event .field-name-field-address-ref{
+    position: relative;
+    height: 9em;
 }
 
-#activite .signup_field_event_ref a{
+.node-type-event .geolocation-googlemaps-static{
+    right: 0;
+    position: absolute;
+    top: -16em;
+}
+
+.node-event .signup_field_event_ref a{
     background: url('../images/jeparticipe.png') no-repeat;
     padding-left: 3em;
     padding-top: 5px;
@@ -737,22 +783,18 @@ table .views-field-name{
     padding-left: 47px;
     padding-top: 5px;
     height: 25px;
+    float: right;
+    padding-right: 4em;
 }
 
-#activite .field-name-field-price{
+.node-event .field-name-field-price{
     height: 2em;
 }
-
-#activite .date-display-single{
-    display: block;
-    float: left;
-}
-
-#activite .field-type-user-reference .field-items{
+.node-event .field-type-user-reference .field-items{
     display: inline;
 }
 
-#activite .field-type-text-with-summary div div{
+.node-event .field-type-text-with-summary div div{
     width: 47%;
     margin: 50px 0 0 0;
     padding: 0;
@@ -760,11 +802,19 @@ table .views-field-name{
     float: left;
 }
 
-#activite #connect-read-more {
+.node-event #connect-read-more {
     background-color: #ededed;
     width: 100%;
     padding: 1.4em 0px;
     text-align: center;
+}
+
+.node-type-event .signup_field_event_ref a{
+    background: url('../images/jeparticipe.png') no-repeat;
+    display: block;
+    padding-left: 47px;
+    padding-top: 5px;
+    height: 25px;
 }
 
 /** 
@@ -1028,6 +1078,41 @@ table .views-field-name{
     margin: 5px;
 }
 
+.page-user-register input{
+    float: right;
+    margin-top: -2em;
+}
+
+.page-user-register .description, .page-user-register #edit-submit{
+    margin-top: 1em;
+}
+
+.page-user-register .container-inline-date .date-padding, 
+.page-user-register .container-inline-date .form-item .form-item{
+    float: none !important;
+}
+
+.page-user-register .container-inline-date > .form-item{
+    display: block;
+    margin-right: 0;
+}
+
+.page-user-register .date-no-float{
+    width: 100%
+}
+
+.page-user-register .container-inline-date .form-item input{
+    margin-right: 0;
+}
+
+.page-user-register .field-type-text{
+    margin: 1.5em 0;
+}
+
+.form-item-field-date-de-naissance-und-0-value .description{
+    margin-top: 0;
+}
+
 /** 
 ##################
      PROFIL     
@@ -1162,6 +1247,10 @@ ul.action-links li a{
 
 .page-messages-view .user-picture img{
     max-width: 8em;
+}
+
+.page-messages-view #content h1{
+    display: none !important;
 }
 
 /** 
@@ -1342,11 +1431,6 @@ ul.action-links li a{
     left: 0 !important;
     text-align: left !important;
     width: 5em !important;
-}
-
-.pager li{
-    border-radius: 5px !important;
-    border: 1px solid #000 !important;
 }
 
 #sidebar_first-block-3, #sidebar_first-block-4{
@@ -1650,3 +1734,28 @@ footer .menu li:nth-child(2) {
 #footer .menu a:hover{
     text-decoration: underline;
 }
+
+
+/** 
+##################
+#     PAGE LISTE UTILISATEURS       
+##################
+**/
+
+.page-utilisateurs .pager{
+    margin-top: 1em;
+}
+
+.page-utilisateurs .pager a{
+    font-weight: bold;
+    color: #222;
+}
+
+.page-utilisateurs .pager .pager-current{
+    color: #43ADDC;
+}
+
+.page-utilisateurs .pager a:hover{
+    text-decoration: underline;
+}
+

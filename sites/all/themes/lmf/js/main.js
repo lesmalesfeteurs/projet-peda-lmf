@@ -32,12 +32,12 @@ $(function() {
             $.get('user/login', function(data) {
                     var form=$(data).find("#content-system-main .content");
                     var popbox = "<div class='collapse'><div class='box'><div class='arrow'></div><div class='arrow-border'></div><div id='connexTitle'>Se connecter</div><div class='close'>X</div>"
-                    //console.log(form);
+                    
                     $('#connexion li.popbox').append(popbox+form.html());
                     popbox_open=true;
                     
                     $('.close').click(function(){
-                        /*console.log('oki');*/
+                        
                         $('.collapse').css({'visibility':'hidden'});
                         popbox_open=false;
                 });
@@ -91,81 +91,15 @@ $(function() {
      **/
     if($('#activite .field-name-field-address-ref')){
         var link = $('#activite .field-name-field-address-ref a').attr('href');
-        //console.log(link);
+        
         $.get(link, function(data) {
             var map=$(data).find(".field-item div");
             $('#activite .field-name-field-address-ref').html(map);
         });
-    }
-    
-    /**
-     * Gestion du bouton participation
-     **/
-    /*if ($('.signup_field_event_ref a')){
-        var link = $('.signup_field_event_ref a').attr('href');
-        $.get(link, function(d) {
-            var buttons=$(d).find('.content form');
-            console.log($(d).find('.content form'));
-
-            buttons.find('.vertical-tabs-panes').addClass('element-invisible');
-            buttons.find('.form-actions').addClass('element-invisible');
-            buttons.find('#edit-field-event-ref').addClass('element-invisible');
-            buttons.find('.form-item label[for=edit-field-participation-und]').addClass('element-invisible');
-
-            $('.signup_field_event_ref').html(buttons);
-        });
-
-        $('#edit-field-participation label').click(function() {
-            console.log("click");
-            /*$.get(link, function(d) {
-                $.ajax({
-                    type: 'POST',
-                    url: url,
-                    data: {
-                        field_event_ref[und][0][nid]: '53',
-                        field_event_ref[und]: $(d).find('.content form input[name=field_participation[und]]').val(),
-                        changed: $(d).find('.content form input[name=changed]').val(),
-                        form_build_id: $(d).find('.content form input[name=form_build_id]').val(),
-                        form_token: $(d).find('.content form input[name=form_token]').val(),
-                        form_id: $(d).find('.content form input[name=form_id]').val(),
-                        comment: '1',
-                        name: 'admin',
-                        status: '1',
-                        op: $(d).find('.content form input[name=op]').val(),
-                    },
-                    success: success,
-                });
-            });*//*
-            
-        });
-    }*/
-    
-    
-    
-    
-    /*
-     *Suppression d'elements inutile
-     **/
-
-    /*if($('#profil')){
-         //console.log('ok');
-         $('h1').css({'position':'absolute','z-index':'-99'});
-         $('#profil h2').css({'display':'none'});
-     }
-     
-     if($('.field-name-field-participation')){
-         $('.vertical-tabs').css({'display':'none'});
-     }
-     */
-     /*
-    if($('#activite') && $('.geolocation-googlemaps-static')){
-         $('.tabs').css({'display':'none'});
-     }*/
-     
-     
+    }     
      
      if ($('.signup_field_event_ref a')){
-        //console.log($('.signup_field_event_ref a'));
+        
         $('li.signup_field_event_ref a').text('Participer')
      }
      
@@ -210,9 +144,32 @@ $(function() {
         $('.tabs').css({'display':'none'});
      }
      
-     /* Quick fixes */
-     $(".form-item.form-type-checkbox.form-item-contact label").text("Autoriser les adhérents à me contacter par l'intermédiaire de ce site");
-     $("input#edit-field-event-datetime-und-add-more.field-add-more-submit.form-submit.ajax-processed").attr("value", "Je peux réaliser l'activité à une autre date");
+    /* Quick fixes */
+    $(".form-item.form-type-checkbox.form-item-contact label").text("Autoriser les adhérents à me contacter par l'intermédiaire de ce site");
+    $("input#edit-field-event-datetime-und-add-more.field-add-more-submit.form-submit.ajax-processed").attr("value", "Je peux réaliser l'activité à une autre date");
     $('#edit-field-recevoir-le-planning-und').children('div:first-child').remove();
-     $('.node-form.node-event-form').prepend('<p>Votre activité sera validée sous réserve de validation de la Commission Planning.</p>');
+    $('.node-form.node-event-form').prepend('<p>Votre activité sera validée sous réserve de validation de la Commission Planning.</p>');
+    if($.browser.msie){
+        $('.borderBottom').css('z-index','-1');
+    }
+
+     /* gestion de la date des activite promues sur la home */
+
+     if($('#content-views-activites-front_next')){
+        $('#content-views-activites-front_next .date-display-single').each(function(){
+            $date = $(this).text();
+            $arrayDate = $date.split(' ');
+            $day = $arrayDate[0].substr(0,3);
+            $month = $arrayDate[2].substr(0,3);
+            $newDate = $day+' '+$arrayDate[1]+' '+$month;
+            $(this).text($newDate);
+        })
+     }
+
+     /* gestion de l'affichage de l'objet d'un message*/
+    if($('.page-messages-view-')){
+        $objectMsg = $('#page-title').text();
+        $('.privatemsg-message-participants').text($objectMsg);
+    }
+
 });
