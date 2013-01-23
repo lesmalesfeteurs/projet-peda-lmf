@@ -148,7 +148,7 @@ $(function() {
     $(".form-item.form-type-checkbox.form-item-contact label").text("Autoriser les adhérents à me contacter par l'intermédiaire de ce site");
     $("input#edit-field-event-datetime-und-add-more.field-add-more-submit.form-submit.ajax-processed").attr("value", "Je peux réaliser l'activité à une autre date");
     $('#edit-field-recevoir-le-planning-und').children('div:first-child').remove();
-    $('.node-form.node-event-form').prepend('<p>Votre activité sera validée sous réserve de validation de la Commission Planning.</p>');
+    $('.node-form.node-event-form .form-actions').prepend('<p class="warning-message">Votre activité sera validée sous réserve de validation de la Commission Planning.</p>');
     if($.browser.msie){
         $('.borderBottom').css('z-index','-1');
     }

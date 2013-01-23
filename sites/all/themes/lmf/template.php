@@ -29,4 +29,17 @@ function lmf_preprocess_user_login(&$vars) {
 function lmf_preprocess_user_register_form(&$vars) {
   $vars['intro_text'] = t('This is my super awesome reg form');
 }
+
+/*
+function hook_form_alter(&$form, $form_state, $form_id) {
+  var_dump($form);
+  switch ($form_id) {
+  case 'event_node_form':
+    if (is_numeric($_GET['nid'])) {
+      $form['field_nom_du_r_f_rent']['element']['#default_value'] = $_GET['nid'];
+    }
+    break;
+  }
+}
+*/
 ?>
