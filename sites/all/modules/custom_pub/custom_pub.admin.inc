@@ -129,7 +129,7 @@ function custom_pub_add_submit($form, &$form_state) {
       $type[trim($form_state['values']['state_machine'])]['node_types'][$node_type] = $node_types->types[$node_type]->name;
     }
   }
-  $ret = array();
+
   $spec = array(
     'description' => 'Custom publishing option '.t(trim($form_state['values']['state'])),
     'type' => 'int',
@@ -144,8 +144,9 @@ function custom_pub_add_submit($form, &$form_state) {
     $success = FALSE;
   }
   if ($success){
-    variable_set('custom_pub_types',array_merge($types,$type));
-    cache_clear_all('schema', 'cache');
+    variable_set('custom_pub_types', array_merge($types,$type));
+    cache_clear_all('entity_info*', 'cache', TRUE);
+    cache_clear_all('schema*', 'cache', TRUE);
     drupal_set_message(t('Publishing option created.'));
   }
   else {
@@ -224,7 +225,6 @@ function custom_pub_edit_submit($form, &$form_state) {
 
   if ($form_state['values']['op'] == t('Delete')) {
     unset($types[$type['type']]);
-    $ret = array();
     try {
       db_drop_field('node', $type['type']);
       $success = TRUE;
@@ -245,11 +245,13 @@ function custom_pub_edit_submit($form, &$form_state) {
     $success = TRUE;
   }
   if ($success) {
-    variable_set('custom_pub_types',$types);
-    drupal_set_message(t('!op publishing option successful.',array('!op'=>$form_state['values']['op'])));
+    cache_clear_all('entity_info*', 'cache', TRUE);
+    cache_clear_all('schema*', 'cache', TRUE);
+    variable_set('custom_pub_types', $types);
+    drupal_set_message(t('!op publishing option successful.',array('!op' => $form_state['values']['op'])));
   }
   else {
-    drupal_set_message(t('There was an error trying to !op the publishing option. Please Try Again',array('!op'=>$form_state['values']['op'])),'error');
+    drupal_set_message(t('There was an error trying to !op the publishing option. Please Try Again',array('!op' => $form_state['values']['op'])),'error');
   }
 }
 
