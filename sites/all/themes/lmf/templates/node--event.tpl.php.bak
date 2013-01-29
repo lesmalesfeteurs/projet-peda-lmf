@@ -83,4 +83,41 @@
     $block = module_invoke('views', 'block_view', '30fdb837629f9f9f089c60500fd138bf');
     print render($block); 
   ?>
+
+	<?php
+		if((!$logged_in || $user->roles[14] || $user->roles[13]) && $node->field_public_event["und"][0]['value'] == "privée") :
+			print "<h2>Événement privé</h2>";
+		else :
+			print "<h2>".$title."</h2>";
+			print render($content['field_event_image']);
+			print render($content['field_event_datetime']);
+			// Ajouter lieu
+			//print render($content['field_nom_du_r_f_rent']);
+			print "<span>Téléphone :".$node->field_telephone["und"][0]['value']."</span>";
+			print render($content['field_price']);
+			print render($content['field_event_capacity']);
+			print render($content['field_temps_de_r_traction']);
+			print render($content['field_site_web']);
+			print render($content['body']);
+		endif;
+
+		if(!$logged_in): 
+	?>
+	<div id="connect-read-more">
+		<p>Pour en savoir plus, vous devez être sympathisant. <a href="<?php print $base_url;?>/lmf/user/register" title="S'inscrire">Inscrivez-vous !</a></p>
+	</div>
+
+	<?php
+		else:
+			// TODO set order
+				// ADD PICTURES
+			print render($content['field_address_ref']);
+			print render($content['links']);
+			//print render($content['field_public_event']);
+		endif;
+
+		if(!(!$logged_in || $user->roles[14] || $user->roles[13])):
+  		print render($content['comments']);
+		endif;
+  ?>
 </div>
