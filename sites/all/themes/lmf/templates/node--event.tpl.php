@@ -80,7 +80,10 @@
 ?>
 <div id="activite">
   <?php
-    $block = module_invoke('views', 'block_view', '30fdb837629f9f9f089c60500fd138bf');
+    $block = module_invoke('views', 'block_view', 'node_event-block');
+    print render($block); 
+
+    $block = module_invoke('views', 'block_view', 'gallerie_photo_activit_s-block');
     print render($block); 
   ?>
 </div>

@@ -10,8 +10,7 @@ scripts[] = js/jquery.min.js
 scripts[] = js/main.js
 scripts[] = js/popbox.min.js
 scripts[] = js/galleria-1.2.8.js
-#scripts[] = js/galleria.classic-1.2.8.js
-#scripts[] = js/galleria.classic.min.js
+scripts[] = js/galleria.classic.min.js
 
 regions[header] = Header
 regions[help] = Help
