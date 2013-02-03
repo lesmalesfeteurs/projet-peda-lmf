@@ -79,11 +79,15 @@
  */
 ?>
 <div id="activite">
+
   <?php
     $block = module_invoke('views', 'block_view', 'node_event-block');
     print render($block); 
 
     $block = module_invoke('views', 'block_view', 'gallerie_photo_activit_s-block');
     print render($block); 
+
+    print render($content["links"]);
+    print render($content["comments"]);
   ?>
 </div>
