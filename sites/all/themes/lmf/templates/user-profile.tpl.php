@@ -1,5 +1,4 @@
-<?Php
-
+<?php
 /**
  * @file
  * Default theme implementation to present all user profile data.
@@ -33,39 +32,39 @@
  */
 ?>
 <div id="profil" class="profile wrapper"<?php print $attributes; ?>>
-	<h2>Profil de l'adhérent</h2>
+        <h2>Profil de l'adhérent</h2>
 
-	<div id="profil-img">
-		<?php print render($user_profile['user_picture']); ?>
-		<?php print render($user_profile['recevoir_le_planning']); ?>
-		<?php print render($user_profile['privatemsg']); ?>
-	</div>
+        <div id="profil-img">
+                <?php print render($user_profile['user_picture']); ?>
+                <?php print render($user_profile['recevoir_le_planning']); ?>
+                <?php print render($user_profile['privatemsg']); ?>
+        </div>
 
-	<div id="profil-infos">
-		<h3>Informations du compte</h3>
-		<?php print render($user_profile['account']); ?>
-		<?php print render($user_profile['field_name']); ?>
-		<?php print render($user_profile['field_firstname']); ?>
-		<?php print render($user_profile['field_address_street']); ?>
-		<?php print render($user_profile['field_code_postal']); ?>
-		<?php print render($user_profile['field_ville']); ?>
-		<?php print render($user_profile['field_pays']); ?>
-		<?php print render($user_profile['field_date_de_naissance']); ?>
-		<?php print render($user_profile['field_t_l_phone']);?>
-	</div>
+        <div id="profil-infos">
+                <h3>Informations du compte</h3>
+                <?php print render($user_profile['account']); ?>
+                <?php print render($user_profile['field_name']); ?>
+                <?php print render($user_profile['field_firstname']); ?>
+                <?php print render($user_profile['field_address_street']); ?>
+                <?php print render($user_profile['field_code_postal']); ?>
+                <?php print render($user_profile['field_ville']); ?>
+                <?php print render($user_profile['field_pays']); ?>
+                <?php print render($user_profile['field_date_de_naissance']); ?>
+                <?php print render($user_profile['field_t_l_phone']);?>
+        </div>
 
-	<?php if(($user->roles[1] == "Trésorier" || $user->uid == arg(1)) && $user_profile['field_date_adhesion'] !== NULL) {?>
-	<div id="profil-adhesion">
+        <?php if(($user->roles[1] == "Trésorier" || $user->uid == arg(1)) && $user_profile['field_date_adhesion'] != NULL) {?>
+        <div id="profil-adhesion">
              <h3>Informations de l'adhésion</h3>
-	     <?php print render($user_profile['field_date_adhesion']); ?>
-	     <?php print render($user_profile['field_montant_adhesion']); ?>
-	     <?php print render($user_profile['field_informations_sur_l_adh_sio']); ?>
-	     <?php print render($user_profile['summary']); ?>
-	</div>
-	<?php } ?>
+             <?php print render($user_profile['field_date_adhesion']); ?>
+             <?php print render($user_profile['field_montant_adhesion']); ?>
+             <?php print render($user_profile['field_informations_sur_l_adh_sio']); ?>
+             <?php print render($user_profile['summary']); ?>
+        </div>
+        <?php } ?>
         
         <div id="profil-activites-referent">
-             <h3>Activites dont vous etes le referent</h3>
+             <h3>Activités dont vous êtes le référent</h3>
              <?php
                 $block = module_invoke('views', 'block_view', 'd4d67b4ff15dc390dc008be5ae8ebd27');
                 print render($block); 
@@ -73,7 +72,7 @@
         </div>   
 
         <div id="profil-activites-not-published">
-             <h3>Activités� que vous avezproposée</h3>
+             <h3>Activités que vous avez proposée</h3>
              <?php
                 $block = module_invoke('views', 'block_view', '36e6498d7abfac3bb873f88f4f7925d2');
                 print render($block); 
