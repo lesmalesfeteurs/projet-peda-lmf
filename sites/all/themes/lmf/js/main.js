@@ -1,22 +1,27 @@
 $(function() {
-    
+     /** galleria quick fix **/
+     //$('.galleria-container.notouch').attr('width', '920px').attr('height', '480px'); 
     /**
      * Gestion des bordures des titres
      **/
-    $("#content-block-1 h2").append("<div class='borderBottom' id='content-block-1_borderBottom'></div>");
-    $("#sidebar_first-block-2 h2").append("<div class='borderBottom' id='sidebar_first-block-2_borderBottom'></div>");
-    $("#content-views-activites-front_next h2").append("<div class='borderBottom' id='content-views-activites-front_next_borderBottom'></div>");
-    $("#content-views-activites-planning h2").append("<div class='borderBottom' id='content-views-activites-planning_borderBottom'></div>");
-    $("#content-views-9c677540f80b1e8b4c4b851ef494ff35 h2").append("<div class='borderBottom' id='content-views-9c677540f80b1e8b4c4b851ef494ff35_borderBottom'></div>");
-    $("#content-views-partenaires-list h2").append("<div class='borderBottom' id='content-views-partenaires-list_borderBottom'></div>");
-    $("#content-views-membres_ca-block h2").append("<div class='borderBottom' id='content-views-membres_ca-block_borderBottom'></div>");
-    $("#content-views-activites-block_4 h2").append("<div class='borderBottom' id='content-views-activites-block_4_borderBottom'></div>");
-    $("#content-views-trombinoscope-block h2").append("<div class='borderBottom' id='content-views-trombinoscope-block_borderBottom'></div>");
-    $("#content-views-gallerie_photo-block_1 h2").append("<div class='borderBottom' id='content-views-gallerie_photo-block_1_borderBottom'></div>");
-    $("#content-views-gallerie_photo-block_2 h2").append("<div class='borderBottom' id='content-views-gallerie_photo-block_1_borderBottom'></div>");
-    $("#content-views-messages_utilisateurs-block h2").append("<div class='borderBottom' id='content-views-messages_utilisateurs-block_borderBottom'></div>");
+
+        $("#content-block-1 h2").append("<div class='borderBottom' id='content-block-1_borderBottom'></div>");
+        $("#sidebar_first-block-2 h2").append("<div class='borderBottom' id='sidebar_first-block-2_borderBottom'></div>");
+        $("#content-views-activites-front_next h2").append("<div class='borderBottom' id='content-views-activites-front_next_borderBottom'></div>");
+        $("#content-views-activites-planning h2").append("<div class='borderBottom' id='content-views-activites-planning_borderBottom'></div>");
+        $("#content-views-9c677540f80b1e8b4c4b851ef494ff35 h2").append("<div class='borderBottom' id='content-views-9c677540f80b1e8b4c4b851ef494ff35_borderBottom'></div>");
+        $("#content-views-partenaires-list h2").append("<div class='borderBottom' id='content-views-partenaires-list_borderBottom'></div>");
+        $("#content-views-membres_ca-block h2").append("<div class='borderBottom' id='content-views-membres_ca-block_borderBottom'></div>");
+        $("#content-views-activites-block_4 h2").append("<div class='borderBottom' id='content-views-activites-block_4_borderBottom'></div>");
+        $("#content-views-trombinoscope-block h2").append("<div class='borderBottom' id='content-views-trombinoscope-block_borderBottom'></div>");
+        $("#content-views-gallerie_photo-block_1 h2").append("<div class='borderBottom' id='content-views-gallerie_photo-block_1_borderBottom'></div>");
+        $("#content-views-gallerie_photo-block_2 h2").append("<div class='borderBottom' id='content-views-gallerie_photo-block_1_borderBottom'></div>");
+        $("#content-views-messages_utilisateurs-block h2").append("<div class='borderBottom' id='content-views-messages_utilisateurs-block_borderBottom'></div>");
     
-    
+        if($.browser.mozilla){
+            $('.borderBottom').css('border','none');
+        }
+
     /**
      * Gestion du background
      **/
@@ -70,7 +75,33 @@ $(function() {
     /**
      * Gestion du menu Membre
      **/
-    
+    if(!($.browser.mozilla)){
+        if ($('#main-menu .menu_membre').length==1){
+            $('#main-menu .menu_membre').hover(
+                function(){
+                    $('#main-menu .menu_membre').animate({
+                        'background-position-y':'0'
+                    },400)
+                },
+                function(){
+                    $('#main-menu .menu_membre').css('background-position-y','-2em');
+                }
+            )
+        }
+    }else{
+        if ($('#main-menu .menu_membre').length==1){
+            $('#main-menu .menu_membre').hover(
+                function(){
+                    $('#main-menu .menu_membre').css('background-position','0 0');
+                },
+                function(){
+                    $('#main-menu .menu_membre').css('background-position','0 -2em');
+                }
+            )
+        }
+    }
+
+
     /* augmente la taille des onglets si le menu membre n'est pas affiche*/
     if ($('#main-menu .menu li').length==6){
         $('#main-menu .menu li').css({'width': '8.7em'});
@@ -171,5 +202,8 @@ $(function() {
         $objectMsg = $('#page-title').text();
         $('.privatemsg-message-participants').text($objectMsg);
     }
+
+    /** Traduction bouton d'envoi de la newsletter **/
+    $('body.page-mass-contact .form-submit').attr('value', "Envoyer l'email");
 
 });

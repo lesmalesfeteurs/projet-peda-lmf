@@ -80,29 +80,31 @@
 ?>
 <div id="activite">
 <?php
+    if($user->uid === $uid && $status == "0") print "<p>En attende de la validation de la commission planning</p>";
+
     $block = '<div id="connect-read-more"><p>Pour en savoir plus, vous devez être sympathisant. <a href="'.$base_url.'/lmf/user/register" title="S\'inscrire">Inscrivez-vous !</a></p></div>';
 
 
-    if((!$logged_in || $user->roles[14] || $user->roles[13]) && $node->field_public_event["und"][0]['value'] == "privée") {
+    if(!$logged_in && $node->field_public_event["und"][0]['value'] == "privée" && $status != "0") {
    /** Utilsateur sympathisant **/
        print "<h2>Événement privé</h2>";
-    } else {
-        if( $is_admin || $user->roles[3] || $user->roles[5] || $user->roles[10] || $user->roles[9] || $user->roles[11] || $user->roles[6] || $user->roles[3] || $user->roles[7] || $user->roles[8] || $user->roles[4]) {
+    } else if($status != "0"){
+        if( $is_admin || $user->roles[3] || $user->roles[5] || $user->roles[10] || $user->roles[9] || $user->roles[11] || $user->roles[6] || $user->roles[7] || $user->roles[8] || $user->roles[4]) {
        
            /** ADMIN, Administrateur du site, Commissions, Secretaire, Trésorier **/
            $block = module_invoke('views', 'block_view', 'node_event-block');
 
-        } else if($user->roles[12]) {
+        } else if($user->roles[12] || $user->roles[13]) {
            /** Adhérents **/
            $block = module_invoke('views', 'block_view', 'adh_rent_node_activit_-block_1');
         }
-       
+
+        print render($content["links"]);       
         print render($block);
   
         $block = module_invoke('views', 'block_view', 'gallerie_photo_activit_s-block');
-        print render($block); 
+        print render($block);
 
-        print render($content["links"]);
         print render($content["comments"]);       
    }
 ?>

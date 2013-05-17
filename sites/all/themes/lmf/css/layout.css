@@ -429,8 +429,8 @@ address .address-name { font-weight: bold;}
 #main-menu li.menu_photos { background: url(../images/menu_photos.png) repeat-x;}
 #main-menu li.menu_contact { background: url(../images/menu_contact.png) repeat-x;}
 #main-menu li.menu_membre { 
-    background-size: 8em 2px;
-    background: url(../images/menu_membre.jpg) no-repeat;
+    background: url(../images/menu_membre.jpg) no-repeat 0 -2em;
+    background-size: 8em 2.2em;
 }
 /*#main-menu li.menu_membre:hover{ background-repeat: repeat-y;}*/
 #main-menu li.menu_membre:hover a{ color: white;}
@@ -447,6 +447,7 @@ address .address-name { font-weight: bold;}
     transition: all 1s ease;
 }
 
+/*
 #main-menu li.menu_membre:hover {
     background-size: 8em 2.2em;
     -moz-transition: all 1s ease-in;
@@ -455,6 +456,7 @@ address .address-name { font-weight: bold;}
     -o-transition: all 1s ease;
     transition: all 1s ease;
 }
+*/
 
 #main-menu .menu .menu{
     visibility: hidden;
@@ -697,7 +699,6 @@ table .views-field-name{
 
 #sidebar_first-views-activites-front_activites .pager li a{
     display: block;
-    /*background: red;*/
     width: 3em;
     height: 3em;
     text-indent: -9000px;
@@ -715,6 +716,10 @@ table .views-field-name{
 
 #sidebar_first-views-activites-front_activites .pager .pager-current{
     margin-left: -1.5em;
+}
+
+.front #content-views-activites-front_next img{
+    display: none;
 }
 
 /** 
@@ -785,6 +790,8 @@ table .views-field-name{
     height: 25px;
     float: right;
     padding-right: 4em;
+    position: absolute;
+    right: 0;
 }
 
 .node-event .field-name-field-price{
@@ -815,6 +822,11 @@ table .views-field-name{
     padding-left: 47px;
     padding-top: 5px;
     height: 25px;
+    width: 6em;
+}
+
+.node-type-event ul.links.inline{
+    float: right;
 }
 
 /** 
@@ -988,6 +1000,8 @@ table .views-field-name{
     float: right;
     width: 42%;
 }
+
+
 
 #inscription{
     float: left;
@@ -1176,9 +1190,14 @@ form .description {
 }
 
 #profil-img, #profil-infos, #profil-adhesion {
-    width: 30%;
+    width: 25%;
     float: left;
-    margin: 0 1.5%;
+    margin-left: 1.5%;
+}
+
+.page-user- #profil-activites-not-published, .page-user- #profil-activites-referent{
+    float: right;
+    width: 45%;
 }
 
 .page-user- #profil h2{
@@ -1187,6 +1206,10 @@ form .description {
 
 .page-user- .profile h3{
     border-bottom: none;
+}
+
+.page-user- #profil-activites-referent h3, #profil-activites-not-published h3{
+    font-weight: bold;
 }
 
 /** 
@@ -1322,6 +1345,10 @@ ul.action-links li a{
     text-align: center;
 }
 
+.page-association #content-views-membres_ca-block section{
+    text-align: center;
+}
+
 /** 
 ###################
         SIDEBAR       
@@ -1357,16 +1384,36 @@ ul.action-links li a{
     padding-top: 2em;
 }
 
+
+/** PHOTOS **/
+.page-photos .album-photo {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: 200px;
+    text-align: center;
+}
+
+.page-photos .album-photo .title {
+    text-align: left;
+    text-indent: 10px;
+}
+
+.page-photos .album-photo .photos-apercu {
+    margin: O auto;
+}
+
+
 /** 
 ############################
 #      PLANNING      
 ############################
 **/
-#content-views-activites-planning h2, #content-views-activites-block_4 h2, .activites-planning h2{
+#content-views-activites-planning h2, #content-views-activites-block_4 h2, page-activites h2, .activites-planning h2{
     border-left: 2px solid #F7921F;
 }
 
-#content-views-activites-planning article, #content-views-activites-block_4 article, .view-display-id-planning>div{
+#content-views-activites-planning article, #content-views-activites-block_4 article, .page-activites article,  .view-display-id-planning>div{
     height: auto;
     position: relative;
     margin-bottom: 5em;
@@ -1377,20 +1424,20 @@ ul.action-links li a{
     margin-bottom: 2em;
 }
 
-#content-views-activites-planning p, #content-views-activites-block_4 p, .activites-planning p{
+#content-views-activites-planning p, #content-views-activites-block_4 p, .page-activites p, .activites-planning p{
     width: 86%;
     margin-top: 0.5em;
 }
 
-#content-views-activites-planning a, #content-views-activites-block_4 a, .activites-planning a:last-child{
+#content-views-activites-planning a, #content-views-activites-block_4 a, .page-activites a, .activites-planning a:last-child{
     text-decoration: underline;
 }
 
-#content-views-activites-planning .date-display-single, #content-views-activites-block_4 .date-display-single, .activites-planning .date-display-single{
+#content-views-activites-planning .date-display-single, #content-views-activites-block_4 .date-display-single, .page-activites .date-display-single, .activites-planning .date-display-single{
     margin-right: 2em;
 }
 
-#content-views-activites-planning h3 a, #content-views-activites-block_4 h3 a, .activites-planning a:first-child{
+#content-views-activites-planning h3 a, #content-views-activites-block_4 h3 a, .page-activites h3 a, .activites-planning a:first-child{
     color: #000;
     font-family: tahoma;
     font-weight: bold;
@@ -1398,15 +1445,34 @@ ul.action-links li a{
     font-size: 1.3em;
 }
 
-#content-views-activites-planning img, #content-views-activites-block_4 img, .activites-planning img{
+.page-activites h3 a, .page-planning h3 a{
+    color: #F7921F !important;
+}
+
+.page-activites h3~div a, .page-planning h3~div a{
+    color: #000;
+}
+
+.page-activites .date-display-single, .page-planning .date-display-single{
+    display: inline-block;
+}
+
+#content-views-activites-planning img, #content-views-activites-block_4 img, .page-activites img, .activites-planning img{
     margin-right: 1em;
     float: left;
 }
 
-#content-views-activites-block_4 h2{
+/*
+.galleria-container.notouch {
+    width: 920px !important;
+    height: 480px !important;
+}
+*/
+/*
+#content-views-activites-block_4 h2, .page-activites h2 {
     border-left: 2px solid #F7921F;
 }
-
+*/
 /*Filtres planning*/
 
 .date-heading h3{
@@ -1450,27 +1516,32 @@ ul.action-links li a{
     display: block;
 }
 
-#sidebar_first-block-3 .content, #sidebar_first-block-4 .content{
+#sidebar_first-block-3 .content, #sidebar_first-block-4 .content, #sidebar_first-block-5 .content{
     text-align: center;
 }
 
-#sidebar_first-block-3 .content a, #sidebar_first-block-4 .content a{
+#sidebar_first-block-3 .content a, #sidebar_first-block-4 .content a, #sidebar_first-block-5 .content a{
     color: #9f9d9e;
 }
 
-#sidebar_first-block-3 .content a:active, #sidebar_first-block-4 .content a:active{
+#sidebar_first-block-3 .content a:active, #sidebar_first-block-4 .content a:active, #sidebar_first-block-5 .content a:active{
     color: red;
 }
 
-#sidebar_first-block-3 .content a:hover, #sidebar_first-block-4 .content a:hover{
+#sidebar_first-block-3 .content a:hover, #sidebar_first-block-4 .content a:hover, #sidebar_first-block-5 .content a:hover{
     color: #f7941f;
     text-decoration: underline;
 }
 
- #sidebar_first-block-4 .content a{
+ #sidebar_first-block-4 .content a, #sidebar_first-block-5 .content a{
     line-height: 30px;
     font-size: 1.2em;
     text-transform: uppercase;
+}
+
+#sidebar_first-block-5{
+    margin-top: 3em;
+    margin-bottom: -3em;
 }
 
 /** 
@@ -1478,6 +1549,10 @@ ul.action-links li a{
 #          ADMIN               
 ############################
 **/
+
+.page-mass-contact #edit-cid-info, .page-mass-contact .form-item-bcc, .page-mass-contact #edit-tasklist, .page-mass-contact .form-item-nodecc {
+    display: none;
+}
 
 ul.primary li a{
     background-color: #f79220;
@@ -1652,6 +1727,8 @@ ul.primary li a:hover {
     border: 1px solid #474747;
     width: 171px;
     height: 171px;
+    margin: 0 auto;
+    display: block;
 }
 
 #content-views-trombinoscope-block tr td span{
@@ -1680,6 +1757,7 @@ ul.primary li a:hover {
     display: block;
     margin-left: 14px;
 }
+
 
 /** 
 ##################
